@@ -4,6 +4,8 @@
 
 # WebGL Bootstrap featuring TWGL.js and VITE
 
+![screenshot](./screenshot.png)
+
 This is a simple bootstrap template for creating a webGL Canvas and attachng
 a Fragment and Vertex Shader with TWGL.js
 
