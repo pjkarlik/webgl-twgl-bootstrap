@@ -63,8 +63,8 @@ const render = (time) => {
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
   // Interpolate Mouse for smooth movement
-  tmouse[0] = tmouse[0] - (tmouse[0] - mouse.x) * 0.15;
-  tmouse[1] = tmouse[1] - (tmouse[1] - mouse.y) * 0.15;
+  tmouse[0] = tmouse[0] - (tmouse[0] - mouse.x) * 0.125;
+  tmouse[1] = tmouse[1] - (tmouse[1] - mouse.y) * 0.125;
   tmouse[2] = mouse.drag ? 1 : -1;
 
   // Set Uniforms to be passed in
