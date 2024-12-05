@@ -6,14 +6,11 @@
 
 ![screenshot](./screenshot.png)
 
-This is a simple bootstrap template for creating a webGL Canvas and attachng
-a Fragment and Vertex Shader with TWGL.js
+This is a simple bootstrap for creating a webGL Canvas and attachng a Fragment / Vertex Shader program to the GPU with TWGL.js
 
-The Shaders are loaded in as template strings and consumed by TWGL.js and 
-atached to the canvas as a WebGL context object.
+The Shaders are loaded in as template strings then atached to the canvas as a WebGL context object.
 
-From there I have a basic Uniforms loop - which sends in variables to the 
-shader running on the GPU on frame refresh.
+From there I have a basic Uniforms loop - which sends in variables to the shader running on the GPU on frame refresh.
 
 Included:
 - Simple CSS file for the body and canvas element to force full width
