@@ -1,14 +1,21 @@
-#WebGL Bootstrap featuring TWGL.js and VITE
+![webGl](https://img.shields.io/badge/webGl-2.0-green.svg?style=flat-square)
+![vite](https://img.shields.io/badge/vite-6.0.1-51b1c5.svg?style=flat-square)
+![twgljs](https://img.shields.io/badge/TWGL.js-5.5.4-c55197.svg?style=flat-square)
 
-This is a simple bootstrap code for creating Fragment Shaders with openGL
-in a simple and small HTML/JS bootstrap package. It's a very small start 
-but has room to grow and expand unpon.
+# WebGL Bootstrap featuring TWGL.js and VITE
 
-Included is a simple 'Mouse' class that is used to send in the mouse position
-into the shaders uniforms.
+This is a simple bootstrap template for creating a webGL Canvas and attachng
+a Fragment and Vertex Shader with TWGL.js
+
+Included:
+- Simple CSS file for the body and canvas element to force full width
+inside the browser. 
+- Basic Mouse class to capture positional data and mouse clicks.
+- Simple asynchronous texture loader for static images. 
 
 Todos:
 
-- texture loading
-- asset mangement
 - buffer shaders
+- video sampler2D
+- audio sampler2D
+- asset mangement
