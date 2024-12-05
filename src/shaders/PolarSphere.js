@@ -39,14 +39,11 @@ float hash21(vec2 p) { return fract(sin(dot(p,vec2(26.37,32.93)))*4374.23); }
 mat2 rot(float a){ return mat2(cos(a),sin(a),-sin(a),cos(a)); }
 vec3 hue(float t) { return .35 + .35*cos(PI2*t*(vec3(1.,.85,.75)+vec3(.94,.67,.28)));}
 
-// @IQ extrude 2D sdf
 float opx(in float d, in float z, in float h){
     vec2 w = vec2( d, abs(z) - h );
   	return min(max(w.x, w.y), 0.) + length(max(w, 0.));
 }
 
-// @Shane tile grid and functions
-// https://www.shadertoy.com/view/4td3zj
 vec4 hexGrid(vec2 uv) {
     vec4 hC = floor(vec4(uv, uv - vec2(1,.5))/s.xyxy) + .5;
     vec4 h4 = vec4(uv - hC.xy*s, uv - (hC.zw + .5)*s);
@@ -145,7 +142,6 @@ vec3 normal(vec3 p, float t) {
     return normalize(n);
 }
 
-// @Shane based on the original by @IQ.
 float calcAO(in vec3 p, in vec3 n) {
 	float sca = 4., occ = 0.;
     for( int i=1; i<5; i++ ) {
