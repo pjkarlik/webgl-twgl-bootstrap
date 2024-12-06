@@ -1,9 +1,7 @@
 {
   "name": "webgl-twgl-boilerplate",
-  "author": "pjkarlik@gmail.com",
-  "description": "Simple WebGL Template for Fragment Shaders using TWGL.js",
   "private": true,
-  "version": "0.0.01",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -9,8 +9,8 @@ import getImage from './utils/getImage.js';
 import * as twgl from 'twgl.js';
 
 // Load Textures and put into an array
-const textureFileOne = "../../public/texture3.jpg";
-const textureFileTwo = "../../public/texture13.jpg"; //st_bw_noise.png";
+import textureFileOne from "./textures/texture3.jpg";
+import textureFileTwo from "./textures/texture13.jpg";
 const textureList = [textureFileOne, textureFileTwo];
 
 // WEBGL BOOTSTRAP TWGL.js
