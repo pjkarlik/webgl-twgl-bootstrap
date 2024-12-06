@@ -8,9 +8,9 @@
 
 This is a simple bootstrap for creating a webGL Canvas and attachng a Fragment / Vertex Shader program to the GPU with TWGL.js
 
-The Shaders are loaded in as template strings then atached to the canvas as a WebGL context object.
+The Shaders are loaded in as template strings then atached to as a GPU program to the canvas. 
 
-From there I have a basic Uniforms loop - which sends in variables to the shader running on the GPU on frame refresh.
+A basic Uniforms loop, which sends in variables to the shader running on the GPU each frame refresh. Time since init, mouse xy position, and mouse click. Two textures are loaded asynchronous and added to the Uniforms. More textures or other various data can be added as needed.
 
 Included:
 - Simple CSS file for the body and canvas element to force full width
@@ -24,6 +24,7 @@ https://webgl-twgl-bootstrap.surge.sh/
 Todos:
 
 - buffer shaders
+- joypad input
 - video sampler2D
 - audio sampler2D
 - asset mangement
