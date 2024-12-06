@@ -1,6 +1,5 @@
 
 // Texture Loading Promise Factory
-let texts;
 const getImage = (url) => {
   return new Promise((resolve, reject) => {
     let img = new Image();

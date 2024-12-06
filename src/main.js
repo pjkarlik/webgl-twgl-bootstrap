@@ -32,6 +32,7 @@ const mouse = new Mouse(glcanvas);
 let umouse = [gl.canvas.width / 2, gl.canvas.height / 2, 0, 0], tmouse = umouse, uniforms;
 
 // Load Textures and set as Static Uniforms
+let texts;
 const loadTexture = (imageList) => {
   console.log("loading images");
   let promises = imageList.map((item) => getImage(item));
