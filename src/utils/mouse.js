@@ -1,46 +1,78 @@
-
-// Simple Mouse Class //
+// Mouse (and Touch) Class for movements and attaching to DOM
 class Mouse {
-    constructor(element) {
-      // Element or Window object for Adding Listner
-      this.element = element || window;
+  constructor(element) {
+    this.element = element || window;
+    this.drag = false;
+
+    // Start at center
+    this.x = (window.innerWidth || 0) / 2;
+    this.y = (window.innerHeight || 0) / 2;
+
+    this.getCoordinates = this.getCoordinates.bind(this);
+
+    // Mouse events
+    ["mouseenter", "mousemove"].forEach((eventName) => {
+      this.element.addEventListener(eventName, this.getCoordinates, {
+        passive: false
+      });
+    });
+
+    this.element.addEventListener("mousedown", () => {
+      this.drag = true;
+    });
+    this.element.addEventListener("mouseup", () => {
       this.drag = false;
-      // Get Floor Half the size of Screen Width/Height
-      this.x =
-        ~~(document.documentElement.clientWidth, window.innerWidth || 0) / 2;
-      this.y =
-        ~~(document.documentElement.clientHeight, window.innerHeight || 0) / 2;
-      this.getCoordinates = this.getCoordinates.bind(this);
-      // Event List to Track
-      this.events = ["mouseenter", "mousemove"];
-      this.events.forEach((eventName) => {
-        this.element.addEventListener(eventName, this.getCoordinates);
-      });
-      // Mouse Click Toggle
-      this.element.addEventListener("mousedown", () => {
+    });
+
+    // Touch events
+    this.element.addEventListener(
+      "touchstart",
+      (e) => {
         this.drag = true;
-      });
-      this.element.addEventListener("mouseup", () => {
-        this.drag = false;
-      });
-      window.addEventListener("resize", this.reset);
-    }
-    // Reset Size
-    reset = () => {
-      this.x =
-        ~~(document.documentElement.clientWidth, window.innerWidth || 0) / 2;
-      this.y =
-        ~~(document.documentElement.clientHeight, window.innerHeight || 0) / 2;
-    };
-    // Tracking Loop
-    getCoordinates(event) {
-      event.preventDefault();
-      if (this.drag) {
-        this.x = event.pageX;
-        this.y = event.pageY;
-      }
-    }
+        this.getCoordinates(e);
+      },
+      { passive: false }
+    );
+
+    this.element.addEventListener("touchmove", this.getCoordinates, {
+      passive: false
+    });
+
+    this.element.addEventListener("touchend", () => {
+      this.drag = false;
+    });
+
+    window.addEventListener("resize", this.reset);
   }
 
-  export default Mouse;
+  reset = () => {
+    this.x = (window.innerWidth || 0) / 2;
+    this.y = (window.innerHeight || 0) / 2;
+  };
+
+  getCoordinates(event) {
+    event.preventDefault();
+
+    let pageX, pageY;
+
+    if (event.type.startsWith("touch")) {
+      if (event.touches.length > 0) {
+        pageX = event.touches[0].pageX;
+        pageY = event.touches[0].pageY;
+      } else {
+        return;
+      }
+    } else {
+      pageX = event.pageX;
+      pageY = event.pageY;
+    }
+
+    if (this.drag) {
+      this.x = pageX;
+      this.y = (window.innerHeight || 0) - pageY;
+    }
+  }
+}
+
+export default Mouse;
   
